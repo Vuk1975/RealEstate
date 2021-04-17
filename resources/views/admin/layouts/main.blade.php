@@ -9,7 +9,7 @@
         <!-- TopBar -->
         @include('admin.layouts.navbar')
         <!-- Topbar -->
-
+       
         <!-- Container Fluid-->
         @yield('content')
         <!---Container Fluid-->

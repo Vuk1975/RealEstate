@@ -50,12 +50,8 @@ class CategoryController extends Controller
             'description'=>$request->description,
         ]);
         
-       
-        return redirect()->route('category.index')->with(
-            [
-                'message_warning' => "Category create!"
-            ]
-        );
+        drakify('success');
+        return redirect()->route('category.index');
     }
 
     /**
@@ -95,11 +91,8 @@ class CategoryController extends Controller
         $category->name= $request->name;
         $category->description= $request->description;
         $category->save();
-        return redirect()->route('category.index')->with(
-            [
-                'message_warning' => "Category create!"
-            ]
-        );
+       
+        return redirect()->route('category.index');
     }
 
     /**
