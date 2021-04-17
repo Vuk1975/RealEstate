@@ -92,6 +92,7 @@ class CategoryController extends Controller
         $category->description= $request->description;
         $category->save();
        
+        drakify('success');
         return redirect()->route('category.index');
     }
 
@@ -105,6 +106,7 @@ class CategoryController extends Controller
     {
         $category = Category::find($id);
         $category->delete();
+        drakify('success');
         return redirect()->route('category.index');
     }
 }
