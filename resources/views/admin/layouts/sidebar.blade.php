@@ -44,6 +44,20 @@
           </div>
         </div>
       </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable" aria-expanded="true"
+          aria-controls="collapseTable">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Property</span>
+        </a>
+        <div id="collapseTable" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Property</h6>
+            <a class="collapse-item" href="{{route('property.index')}}">View</a>
+            <a class="collapse-item" href="{{route('property.create')}}">Create</a>
+          </div>
+        </div>
+      </li>
       
       
      

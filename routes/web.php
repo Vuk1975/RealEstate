@@ -21,8 +21,12 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+
 Route::get('/dashboard', function () {
     return view('admin.dashboard');
 });
 	Route::resource('category','App\Http\Controllers\CategoryController');
     Route::resource('subcategory','App\Http\Controllers\SubcategoryController');
+    Route::resource('property','App\Http\Controllers\PropertyController');
+    Route::get('subcategories/{id}','App\Http\Controllers\PropertyController@loadSubCategories');
+    
