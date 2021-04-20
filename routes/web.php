@@ -29,4 +29,3 @@ Route::get('/dashboard', function () {
     Route::resource('subcategory','App\Http\Controllers\SubcategoryController');
     Route::resource('property','App\Http\Controllers\PropertyController');
     Route::get('subcategories/{id}','App\Http\Controllers\PropertyController@loadSubCategories');
-    
