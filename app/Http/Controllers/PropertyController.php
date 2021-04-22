@@ -36,7 +36,7 @@ class PropertyController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Property $property)
     {
         $this->validate($request,[
             'street'=>'required',
@@ -57,7 +57,7 @@ class PropertyController extends Controller
             'category'=>'required'
          ]);
 
-         Property::create([
+        $property = Property::create([
   
             'street'=>$request->street,
             'quart'=>$request->quart,
@@ -79,8 +79,10 @@ class PropertyController extends Controller
 
          ]);
 
+         $id = $property->id;
+         session()->put('id', $id);
          drakify('success');
-         return redirect()->route('property.index');
+         return redirect()->route('image.create', compact('property', 'id'));
     }
 
     /**
@@ -137,8 +139,10 @@ class PropertyController extends Controller
 
         $property->save();
 
+        $id = $property->id;
+        session()->put('id', $id);
         drakify('success');
-        return redirect()->route('property.index');
+        return redirect()->route('image.update', compact('property', 'id'));
 
     }
 
@@ -150,7 +154,11 @@ class PropertyController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $property = Property::find($id);
+        $property->delete();
+        
+        drakify('success');
+        return redirect()->route('property.index');
     }
     
 
