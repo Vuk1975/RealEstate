@@ -145,17 +145,18 @@
                             <div class="form-group"> 
                                 <label for="rooms">Structure</label></br>
                                     <select class="form-select" name="rooms" id="">
-                                        <option value="0.5">0.5 room</option>
-                                        <option value="1.0">1.0-room</option>
-                                        <option value="1.5">1.5-rooms</option>
-                                        <option value="2.0">2.0-rooms</option>
-                                        <option value="2.5">2.5-rooms</option>
-                                        <option value="3.0">3.0-rooms</option>
-                                        <option value="3.5">3.5-rooms</option>
-                                        <option value="4.5">4.5-rooms</option>
-                                        <option value="5.0">5.0-rooms</option>
+                                        <option {{ ($property->rooms) == '0.5' ? 'selected' : '' }} value="0.5">0.5 room</option>
+                                        <option {{ ($property->rooms) == '1' ? 'selected' : ''}} value="1.0">1.0-room</option>
+                                        <option {{ ($property->rooms) == '1.5' ? 'selected' : ''}} value="1.5">1.5-rooms</option>
+                                        <option {{ ($property->rooms) == '2' ? 'selected' : ''}} value="2.0">2.0-rooms</option>
+                                        <option {{ ($property->rooms) == '2.5' ? 'selected' : ''}} value="2.5">2.5-rooms</option>
+                                        <option {{ ($property->rooms) == '3' ? 'selected' : ''}} value="3.0">3.0-rooms</option>
+                                        <option {{ ($property->rooms) == '3.5' ? 'selected' : ''}} value="3.5">3.5-rooms</option>
+                                        <option {{ ($property->rooms) == '4.0' ? 'selected' : ''}} value="4.0">4.0-rooms</option>
+                                        <option {{ ($property->rooms) == '4.5' ? 'selected' : ''}} value="4.5">4.5-rooms</option>
+                                        <option {{ ($property->rooms) == '5' ? 'selected' : ''}} value="5.0">5.0-rooms</option>
                                     </select>
-                    
+                                    {{$property->structure}}
                             </div>
                         </div>
                         <div class="col-md-3 p-3">
@@ -237,9 +238,12 @@
                       <label for="">Choose Category</label>
                         <select name="category"  class="form-control @error('category') is-invalid @enderror" >
                           <option value="">select</option>
+                          @if($property->category_id)
+                                <option value="{{$property->category_id}}" selected>{{$category->name}}</option>
                           @foreach(App\Models\Category::all() as $key=> $category)
                             <option value="{{$category->id}}">{{$category->name}}</option>
                           @endforeach
+                          @endif
 
                         </select>
 
@@ -256,7 +260,14 @@
                       <label for="">Choose Subcategory</label>
                         <select name="subcategory"  class="form-control @error('subcategory') is-invalid @enderror" >
 
-                          <option value="">select</option>
+                        <option value="">select</option>
+                          @if($property->subcategory_id)
+                                <option value="{{$property->subcategory_id}}" selected>{{$subcategory->name}}</option>
+                          @else
+                          @foreach(App\Models\Subategory::all() as $key=> $subcategory)
+                            <option value="{{$subcategory->id}}">{{$subcategory->name}}</option>
+                          @endforeach
+                          @endif
                           
 
                         </select>
