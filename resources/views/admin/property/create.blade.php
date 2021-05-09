@@ -291,12 +291,8 @@
                 
                 $('select[name="subcategory"]').empty();
             }
-
         });
-
     });
 </script>
 
 @endsection
-
-

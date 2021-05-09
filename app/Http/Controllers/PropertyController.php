@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Property;
 use App\Models\Category;
 use App\Models\Subcategory;
+use App\Models\Image;
+
 
 class PropertyController extends Controller
 {
@@ -36,7 +38,7 @@ class PropertyController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Property $property)
     {
         $this->validate($request,[
             'street'=>'required',
@@ -57,7 +59,7 @@ class PropertyController extends Controller
             'category'=>'required'
          ]);
 
-         Property::create([
+        $property = Property::create([
   
             'street'=>$request->street,
             'quart'=>$request->quart,
@@ -79,8 +81,11 @@ class PropertyController extends Controller
 
          ]);
 
+         $id = $property->id;
+        
+         session()->put('id', $id);
          drakify('success');
-         return redirect()->route('property.index');
+         return redirect()->route('image.create', compact('property', 'id'));
     }
 
     /**
@@ -103,7 +108,10 @@ class PropertyController extends Controller
     public function edit($id)
     {
         $property = Property::find($id);
-        return view('admin.property.edit',compact('property'));
+        session()->put('id', $id);
+        $category = Category::where('id',  '=', $property->category_id)->firstOrFail();
+        $subcategory = Subcategory::where('id',  '=', $property->subcategory_id)->firstOrFail();
+        return view('admin.property.edit',compact('property', 'category', 'subcategory', 'id'));
     }
 
     /**
@@ -114,8 +122,9 @@ class PropertyController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
+    {   
         $property = Property::find($id);
+        session()->put('id', $id);
 
         $property->street = $request->street;
         $property->quart = $request->quart;
@@ -137,8 +146,11 @@ class PropertyController extends Controller
 
         $property->save();
 
+        $id = $property->id;
+        
+        
         drakify('success');
-        return redirect()->route('property.index');
+        return redirect()->route('image.edit', compact('id'));
 
     }
 
@@ -150,7 +162,24 @@ class PropertyController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $property = Property::find($id);
+        session()->put('id', $id);
+       
+       
+        /*
+        $image = Image::where('property_id', '=', $id)->get()->toArray();
+        dd($image['id']);
+        $pathName = $image->pathName;
+        
+        
+        
+        \Storage::disk('public')->delete('/images/properties/' . $image->pathName);
+        $image->delete();
+        */
+        $property->delete();
+        drakify('success');
+        return redirect()->route('image.destroy', compact('id'));
+        
     }
     
 
