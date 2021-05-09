@@ -29,4 +29,10 @@ Route::get('/dashboard', function () {
     Route::resource('subcategory','App\Http\Controllers\SubcategoryController');
     Route::resource('property','App\Http\Controllers\PropertyController');
     Route::get('subcategories/{id}','App\Http\Controllers\PropertyController@loadSubCategories');
-    
+
+    Route::get('/image/create/{id}', [App\Http\Controllers\ImageController::class,'create'])->name('image.create');
+    Route::post('image/store/{id}', [App\Http\Controllers\ImageController::class,'store'])->name('image.store');
+    Route::any('image/edit/{id}', 'App\Http\Controllers\ImageController@edit')->name('image.edit');
+    Route::any('image/update/{id}', 'App\Http\Controllers\ImageController@update')->name('image.update');
+
+    Route::any('image/destroy/{id}', 'App\Http\Controllers\ImageController@destroy')->name('image.destroy');
