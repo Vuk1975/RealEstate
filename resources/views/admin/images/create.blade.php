@@ -54,12 +54,12 @@
 
       <div class="input-group hdtuto control-group ">
           <input type="file" name="pathName[]" style="min-width: 100%!important;" class="myfrm form-control row">
-      
+
           <button class="btn btn-success" type="button"><i class="fldemo glyphicon glyphicon-plus"></i>Add</button>
       </div>
       <button type="submit" class="btn btn-primary" style="margin-top:10px">Submit</button>
-
-
+      
+    
 </form>        
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>

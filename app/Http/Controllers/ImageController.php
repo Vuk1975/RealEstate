@@ -7,6 +7,7 @@ use App\Models\Image;
 use App\Models\Property;
 use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\PropertyController;
+use Img;
 
 
 
@@ -58,7 +59,13 @@ class ImageController extends Controller
             foreach($request->file('pathName') as $file)
             {
                 $name = time().'_'.$file->getClientOriginalName();
-                $file->move(public_path().'/images/properties/', $name);  
+                //$file->move(public_path().'/images/properties/', $name);  
+
+                $img = Img::make($file->getRealPath());
+                
+                $img->crop(350, 440)->save(public_path().'/images/properties/'.$name);
+
+
                 $data[] = $name;  
             }
          }
