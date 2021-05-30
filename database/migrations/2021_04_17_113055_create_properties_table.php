@@ -16,6 +16,7 @@ class CreatePropertiesTable extends Migration
         Schema::create('properties', function (Blueprint $table) {
             $table->id();
             $table->string('street');
+            $table->string('img');
             $table->string('quart');
             $table->integer('area');
             $table->integer('registered_area');

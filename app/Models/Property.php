@@ -11,7 +11,7 @@ use App\Models\Image;
 
 class Property extends Model
 {
-    protected $fillable = ['street', 'quart', 'area','registered_area', 'window_type', 'water_outlets', 
+    protected $fillable = ['street', 'quart', 'image', 'area','registered_area', 'window_type', 'water_outlets', 
                             'bathrooms', 'badrooms','rooms', 'flors', 'at_flor', 'year', 'description', 
                             'additional_info', 'price', 'category_id','subcategory_id'];
 

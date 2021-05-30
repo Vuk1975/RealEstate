@@ -52,6 +52,18 @@
                     </div>
 
                     </div>
+                    <div class="form-group">
+                      <div class="custom-file">
+                            <input type="file" name="img" style="min-width: 100%!important;" >
+                        
+                            @error('image')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                          </span>
+                      @enderror
+                      </div>
+                       
+                    </div>
                     <div class="row">
                         <div class="col-md-3 p-3">
                             <div class="form-group"> 

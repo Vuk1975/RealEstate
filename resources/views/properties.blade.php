@@ -51,13 +51,13 @@
           <div class="col-md-4">
             <div class="card-box-a card-shadow">
               <div class="img-box-a">
-                <img src="{{asset('/images/properties/'.json_decode($property->image->pathName, true)[0])}}" alt="" class="img-a img-fluid">
+                <img src="{{asset('/images/properties/'.$property->img)}}" alt=""  style="width:100%"  class="img-a img-fluid">
               </div>
               <div class="card-overlay">
                 <div class="card-overlay-a-content">
                   <div class="card-header-a">
                     <h2 class="card-title-a">
-                      <a href="#">{{$property->street}}
+                      <a href="{{route('property.view', [$property->id])}}">{{$property->street}}
                         <br /> {{$property->quart}}</a>
                     </h2>
                   </div>

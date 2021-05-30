@@ -7,6 +7,7 @@ use App\Models\Property;
 use App\Models\Category;
 use App\Models\Subcategory;
 use App\Models\Image;
+use Img;
 
 
 class PropertyController extends Controller
@@ -43,6 +44,7 @@ class PropertyController extends Controller
         $this->validate($request,[
             'street'=>'required',
             'quart'=>'required',
+            'img.*' => 'mimes:jpeg,jpg,png,gif',
             'area'=>'required',
             'registered_area'=>'required',
             'window_type'=>'required',
@@ -58,11 +60,18 @@ class PropertyController extends Controller
             'price'=>'required|numeric',
             'category'=>'required'
          ]);
+        
+        
+        $file = $request->file('img');
+        $name = time().'_'.$file->getClientOriginalName();
+        $image = Img::make($file->getRealPath());
+        $image->crop(330, 440)->save(public_path().'/images/properties/'.$name);
 
         $property = Property::create([
   
             'street'=>$request->street,
             'quart'=>$request->quart,
+            'img'=>$name,
             'area'=>$request->area,
             'registered_area'=>$request->registered_area,
             'window_type'=>$request->window_type,
@@ -80,6 +89,7 @@ class PropertyController extends Controller
             'subcategory_id'=>$request->subcategory,
 
          ]);
+        
 
          $id = $property->id;
         
@@ -125,6 +135,16 @@ class PropertyController extends Controller
     {   
         $property = Property::find($id);
         session()->put('id', $id);
+        
+
+        $file = $request->file('img');
+        if($file){
+            $name = time().'_'.$file->getClientOriginalName();
+            $image = Img::make($file->getRealPath());
+            $image->crop(330, 440)->save(public_path().'/images/properties/'.$name);
+            $property->img = $name;
+        }
+        
 
         $property->street = $request->street;
         $property->quart = $request->quart;

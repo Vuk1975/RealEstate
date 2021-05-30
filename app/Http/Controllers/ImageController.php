@@ -50,7 +50,7 @@ class ImageController extends Controller
 
       $this->validate($request, [
                 'pathName' => 'required',
-                'pathName.*' => 'mimes:jpeg,jpg,png,gif,csv,txt,xlx,xls,pdf'
+                'pathName.*' => 'mimes:jpeg,jpg,png,gif,'
         ]);
 
 
@@ -59,14 +59,10 @@ class ImageController extends Controller
             foreach($request->file('pathName') as $file)
             {
                 $name = time().'_'.$file->getClientOriginalName();
-                //$file->move(public_path().'/images/properties/', $name);  
-
                 $img = Img::make($file->getRealPath());
-                
-                $img->crop(350, 440)->save(public_path().'/images/properties/'.$name);
-
-
+                $img->crop(1200, 660)->save(public_path().'/images/properties/'.$name);
                 $data[] = $name;  
+
             }
          }
 
@@ -92,10 +88,11 @@ class ImageController extends Controller
       $image = Image::where('property_id',  '=', $property_id)->firstOrFail();
       
       $deleteImage = $request->input('deleteImage');
-      $oldImages = json_decode($image->pathName);
+      $oldImages = json_decode( $image->pathName, true);
+
       if($deleteImage){
         $restImages = array_diff($oldImages, $deleteImage);
-      } else{
+      }else{
         $restImages = $oldImages;
       }
      
@@ -104,13 +101,18 @@ class ImageController extends Controller
             foreach($request->file('pathName') as $file)
             {
                 $name = time().'_'.$file->getClientOriginalName();
-                $file->move(public_path().'/images/properties/', $name);  
+                $img = Img::make($file->getRealPath());
+                $img->resize(1200, 660)->save(public_path().'/images/properties/'.$name);
                 $data[] = $name;  
             }
+            $newImages = $data;
+            $updatedImages = array_merge ($restImages, $newImages);
+         }else{
+            $updatedImages = $restImages;
          }
-      $newImages = $data;
+      
      
-      $updatedImages = array_merge ($restImages, $newImages);
+      
       $image->pathName = json_encode($updatedImages);
       $image->save();
       drakify('success');

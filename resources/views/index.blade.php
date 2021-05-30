@@ -196,13 +196,13 @@
           <div class="carousel-item-b">
             <div class="card-box-a card-shadow">
               <div class="img-box-a">
-                <img src="{{asset('/images/properties/'.json_decode($property->image->pathName, true)[0])}}" style="height:400px" alt="" class="img-a img-fluid">
+                <img src="{{asset('/images/properties/'.$property->img)}}" alt=""class="img-a img-fluid">
               </div>
               <div class="card-overlay">
                 <div class="card-overlay-a-content">
                   <div class="card-header-a">
                     <h2 class="card-title-a">
-                      <a href="property-single.html">{{$property->street}}
+                      <a href="{{route('property.view', [$property->id])}}">{{$property->street}}
                         <br /> {{$property->quart}}</a>
                         
                     </h2>
@@ -211,7 +211,7 @@
                     <div class="price-box d-flex">
                       <span class="price-a">{{$property->category->name}} | $ {{$property->price}}</span>
                     </div>
-                    <a href="property-single.html" class="link-a">Click here to view
+                    <a href="{{route('property.view', [$property->id])}}" class="link-a">Click here to view
                       <span class="ion-ios-arrow-forward"></span>
                     </a>
                   </div>

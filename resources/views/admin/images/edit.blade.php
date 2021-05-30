@@ -1,10 +1,4 @@
-@php
-
-$photos = json_decode($image->pathName, true);
-
-@endphp
-
-@extends('layouts.app')
+@extends('admin.layouts.main')
 
 @section('content')
     <div class="container">
@@ -21,11 +15,11 @@ $photos = json_decode($image->pathName, true);
                                     </div>
                                     <div class="row">
                                 
-                                        @foreach($photos as $photo)
+                                        @foreach(json_decode($image->pathName, true) as $photo)
                                         <div class="col-md-3">
-                                            <label class="btn btn-light">
+                                            <label class="btn">
                                         <img src="{{asset('/images/properties/'.$photo)}}" alt="..." class="img-thumbnail img-check">
-                                            <input type="checkbox" name="deleteImage[]" id="item4" value="{{$photo}}" class="hidden" autocomplete="off"></label>
+                                            <input type="checkbox" name="deleteImage[]" id="item4" value="{{$photo}}" autocomplete="off"></label>
                                         </div>
                                         @endforeach
                                     </div>
