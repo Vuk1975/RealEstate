@@ -47,3 +47,4 @@ Route::get('/dashboard', function () {
     Route::get('slider/edit/{id}', 'App\Http\Controllers\SliderController@edit')->name('slider.edit');
     Route::any('slider/update/{id}', 'App\Http\Controllers\SliderController@update')->name('slider.update');
 	Route::delete('slider/{id}', 'App\Http\Controllers\SliderController@destroy')->name('slider.destroy');
+    Route::resource('tag', 'App\Http\Controllers\TagController');
