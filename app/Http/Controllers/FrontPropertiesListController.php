@@ -5,12 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Subcategory;
 use App\Models\Property;
+use App\Models\Slider;
 
 class FrontPropertiesListController extends Controller
 {
     public function index() {
         $properties = Property::latest()->limit(6)->get();
-        return view('index', compact('properties'));
+        $sliders = Slider::get();
+        return view('index', compact('properties', 'sliders'));
     }
     
     public function properties() {

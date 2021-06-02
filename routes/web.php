@@ -16,9 +16,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-*/
+
 
 Auth::routes();
+*/
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -38,5 +39,11 @@ Route::get('/dashboard', function () {
     Route::post('image/store/{id}', [App\Http\Controllers\ImageController::class,'store'])->name('image.store');
     Route::any('image/edit/{id}', 'App\Http\Controllers\ImageController@edit')->name('image.edit');
     Route::any('image/update/{id}', 'App\Http\Controllers\ImageController@update')->name('image.update');
-
     Route::any('image/destroy/{id}', 'App\Http\Controllers\ImageController@destroy')->name('image.destroy');
+
+    Route::get('slider', 'App\Http\Controllers\SliderController@index')->name('slider.index');
+	Route::post('slider', 'App\Http\Controllers\SliderController@store')->name('slider.store');
+	Route::get('slider/create', 'App\Http\Controllers\SliderController@create')->name('slider.create');
+    Route::get('slider/edit/{id}', 'App\Http\Controllers\SliderController@edit')->name('slider.edit');
+    Route::any('slider/update/{id}', 'App\Http\Controllers\SliderController@update')->name('slider.update');
+	Route::delete('slider/{id}', 'App\Http\Controllers\SliderController@destroy')->name('slider.destroy');

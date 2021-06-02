@@ -64,7 +64,7 @@ class PropertyController extends Controller
         
         $file = $request->file('img');
         $name = time().$file->getClientOriginalName();
-        //dd($name);
+
         $image = Img::make($file->getRealPath());
         $image->crop(330, 440)->save(public_path().'/images/properties/'.$name);
 

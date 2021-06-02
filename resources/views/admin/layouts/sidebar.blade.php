@@ -58,6 +58,20 @@
           </div>
         </div>
       </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSlider" aria-expanded="true"
+          aria-controls="collapseSlider">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Slider</span>
+        </a>
+        <div id="collapseSlider" class="collapse" aria-labelledby="headingSlidere" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Slider</h6>
+            <a class="collapse-item" href="{{route('slider.index')}}">View</a>
+            <a class="collapse-item" href="{{route('slider.create')}}">Create</a>
+          </div>
+        </div>
+      </li>
       
       
      
@@ -66,24 +80,7 @@
       
       <hr class="sidebar-divider">
      
-      <li class="nav-item">
-       
-         
-       <a class="dropdown-item" href="{{ route('logout') }}"
-                                              onclick="event.preventDefault();
-                                                            document.getElementById('logout-form').submit();">
-                                                    <i class="fas fa-sign-out-alt"></i>
-        Logout
-       
-                                           </a>
-       
-                                           <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                               @csrf
-                                           </form>
-       
-       
-              
-             </li>
+
       <hr class="sidebar-divider">
       <div class="version" id="version-ruangadmin"></div>
     </ul>
