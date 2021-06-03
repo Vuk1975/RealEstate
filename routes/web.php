@@ -16,9 +16,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
-
-Auth::routes();
 */
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -48,3 +45,7 @@ Route::get('/dashboard', function () {
     Route::any('slider/update/{id}', 'App\Http\Controllers\SliderController@update')->name('slider.update');
 	Route::delete('slider/{id}', 'App\Http\Controllers\SliderController@destroy')->name('slider.destroy');
     Route::resource('tag', 'App\Http\Controllers\TagController');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
