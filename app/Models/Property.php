@@ -8,7 +8,7 @@ use App\Models\Category;
 use App\Models\Subcategory;
 use App\Models\Image;
 use App\Models\Tag;
-
+use App\Models\User;
 
 class Property extends Model
 {
@@ -20,10 +20,13 @@ class Property extends Model
 
     
     public function user(){
-        return $this->belongsTo('User');
+        return $this->belongsTo(User::class);
         }
     public function category(){
     	return $this->hasOne(Category::class,'id','category_id');
+    }
+    public function subcategory(){
+    	return $this->hasOne(Subcategory::class,'id','subcategory_id');
     }
     public function image(){
     	return $this->hasOne(Image::class);

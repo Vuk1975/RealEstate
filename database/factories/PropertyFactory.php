@@ -22,7 +22,7 @@ class PropertyFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => $this->faker->numberBetween($min = 341, $max = 380),
+            'user_id' => $this->faker->numberBetween($min = 1, $max = 50),
             'street' => $this->faker->streetName,
             'img' => $this->faker->randomElement(['1622401783_post-7.jpg', '1622402278post-2.jpg', '1622579558post-6.jpg', '1622373997_slide-3.jpg']),
             'quart' => $this->faker->phoneNumber,
@@ -39,7 +39,7 @@ class PropertyFactory extends Factory
             'description' => $this->faker->text($maxNbChars = 200),
             'additional_info' => $this->faker->text($maxNbChars = 200),
             'price' => $this->faker->numberBetween($min = 50000, $max = 100000),
-            'category_id' => $this->faker->numberBetween($min = 2, $max = 4),
+            'category_id' => $this->faker->numberBetween($min = 1, $max = 2),
             'subcategory_id' => $this->faker->numberBetween($min = 1, $max = 2),
         ];
     }

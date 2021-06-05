@@ -35,9 +35,10 @@ class ImageController extends Controller
     }
 
     public function create(Request $request, $id){
-      if(session()->has('id')){
+        if(session()->has('id')){
         $id  = Session::get('id');
         }
+        
         return view('admin.images.create', compact('id'));
     }
 
@@ -46,7 +47,7 @@ class ImageController extends Controller
       if(session()->has('id')){
        $id  = Session::get('id');
       }
-  
+      
 
       $this->validate($request, [
                 'pathName' => 'required',

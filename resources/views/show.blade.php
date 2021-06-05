@@ -73,7 +73,7 @@
                       </li>
                       <li class="d-flex justify-content-between">
                         <strong>Property Type:</strong>
-                        <span>{{$subName[0]}}</span>
+                        <span>{{$property->subcategory->name}}</span>
                       </li>
                       <li class="d-flex justify-content-between">
                         <strong>Status:</strong>
@@ -150,59 +150,20 @@
              
               <div class="col-md-6 col-lg-6">
                 <div class="property-agent">
-                  <h4 class="title-agent">Anabella Geller</h4>
-                  <p class="color-text-a">
-                    Nulla porttitor accumsan tincidunt. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet
-                    dui. Quisque velit nisi,
-                    pretium ut lacinia in, elementum id enim.
-                  </p>
+                  <h4 class="title-agent">{{$property->user->name}}</h4>
+                  
                   <ul class="list-unstyled">
                     <li class="d-flex justify-content-between">
                       <strong>Phone:</strong>
-                      <span class="color-text-a">(222) 4568932</span>
-                    </li>
-                    <li class="d-flex justify-content-between">
-                      <strong>Mobile:</strong>
-                      <span class="color-text-a">777 287 378 737</span>
+                      <span class="color-text-a">{{$property->user->phone}}</span>
                     </li>
                     <li class="d-flex justify-content-between">
                       <strong>Email:</strong>
-                      <span class="color-text-a">annabella@example.com</span>
+                      <span class="color-text-a">{{$property->user->email}}</span>
                     </li>
-                    <li class="d-flex justify-content-between">
-                      <strong>Skype:</strong>
-                      <span class="color-text-a">Annabela.ge</span>
-                    </li>
+                   
                   </ul>
-                  <div class="socials-a">
-                    <ul class="list-inline">
-                      <li class="list-inline-item">
-                        <a href="#">
-                          <i class="fa fa-facebook" aria-hidden="true"></i>
-                        </a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a href="#">
-                          <i class="fa fa-twitter" aria-hidden="true"></i>
-                        </a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a href="#">
-                          <i class="fa fa-instagram" aria-hidden="true"></i>
-                        </a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a href="#">
-                          <i class="fa fa-pinterest-p" aria-hidden="true"></i>
-                        </a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a href="#">
-                          <i class="fa fa-dribbble" aria-hidden="true"></i>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
+                  
                 </div>
               </div>
               <div class="col-md-12 col-lg-6">

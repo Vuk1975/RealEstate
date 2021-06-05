@@ -142,12 +142,12 @@
                         </div>
                     </div>
 
-                    <div class="row">
+                    
                         <div class="col-md-3 p-3">
                             <div class="form-group"> 
                                 <label for="">Window type</label>
                                     <input type="text" name="window_type" class="form-control @error('window_type') is-invalid @enderror " id="" aria-describedby="" 
-                                    value="{{$property->window_type}}">
+                                    placeholder="Window type" value="{{$property->window_type}}">
                                             @error('area')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -156,7 +156,7 @@
                     
                             </div>
                         </div>
-                    </div>
+                    
                         <div class="col-md-3 p-3">
                             <div class="form-group"> 
                             <label for="">Water outlets</label>
