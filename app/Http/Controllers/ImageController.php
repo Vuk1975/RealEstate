@@ -67,7 +67,7 @@ class ImageController extends Controller
             }
          }
 
-
+         
     $file = new Image();
     $file->pathName = json_encode($data);
     $file->property_id = $id;
@@ -76,7 +76,7 @@ class ImageController extends Controller
 
 
     drakify('success');
-    return redirect()->route('property.index');
+    return redirect()->route('property.show', [$file->property_id]);
     }  
 
     public function update(Request $request, $id){
