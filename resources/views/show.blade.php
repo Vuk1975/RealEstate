@@ -87,7 +87,7 @@
                       </li>
                       <li class="d-flex justify-content-between">
                         <strong>Rooms:</strong>
-                        <span>{{$property->area}}</span>
+                        <span>{{$property->rooms}}</span>
                       </li>
                       <li class="d-flex justify-content-between">
                         <strong>Baths:</strong>
@@ -122,16 +122,15 @@
                   </div>
                 </div>
                 <div class="amenities-list color-text-a">
-                  <ul class="list-a no-margin">
-                    <li>Balcony</li>
-                    <li>Outdoor Kitchen</li>
-                    <li>Cable Tv</li>
-                    <li>Deck</li>
-                    <li>Tennis Courts</li>
-                    <li>Internet</li>
-                    <li>Parking</li>
-                    <li>Sun Room</li>
-                    <li>Concrete Flooring</li>
+                  <ul class="list-a no-margin col-md-12">
+                        @foreach($property->tags as $tag)
+                          <li>{{ $tag->name }}</li>
+                        @endforeach
+                  
+                   
+               
+                   
+                    
                   </ul>
                 </div>
               </div>

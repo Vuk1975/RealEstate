@@ -23,13 +23,13 @@
                         <th>Quart</th>
                         <th>Area</th>
                         <th>Structure</th>
-                        <th>Bathrooms</th>
-                        <th>Badrooms</th>
                         <th>Flor</th>
                         <th>Price</th>
                         <th>Category</th>
+                        <th></th>
                         <th>Action</th>
-                        <th>Action</th>
+                        <th></th>
+                        
                       </tr>
                     </thead>
                     
@@ -42,12 +42,15 @@
                         <td>{{$property->quart}}</td>
                         <td>{{$property->area}}</td>
                         <th>{{$property->rooms}}-room</th>
-                        <td>{{$property->bathrooms}}</td>
-                        <td>{{$property->badrooms}}</td>
                         <td>{{$property->at_flor}}/{{$property->flors}}</td>
                         <td>{{$property->price}}</td>
                         <td>{{$property->category->name}}</td>
 
+                        <td>
+                          <a href="{{route('property.show',[$property->id])}}">
+                              <button class="btn btn-sm btn-primary">Show</button>
+                          </a>
+                        </td>
                         <td>
                           <a href="{{route('property.edit',[$property->id])}}">
                               <button class="btn btn-sm btn-primary">Edit</button>

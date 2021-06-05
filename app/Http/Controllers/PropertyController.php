@@ -7,6 +7,7 @@ use App\Models\Property;
 use App\Models\Category;
 use App\Models\Subcategory;
 use App\Models\Image;
+use App\Models\Tag;
 use Img;
 
 
@@ -107,7 +108,11 @@ class PropertyController extends Controller
      */
     public function show($id)
     {
-        //
+        $property = Property::find($id);
+        $allTags = Tag::all();
+        $usedTags = $property->tags;
+        $availableTags = $allTags->diff($usedTags);
+        return view('admin.property.show',compact('property', 'usedTags', 'availableTags'));
     }
 
     /**

@@ -45,6 +45,10 @@ Route::get('/dashboard', function () {
     Route::any('slider/update/{id}', 'App\Http\Controllers\SliderController@update')->name('slider.update');
 	Route::delete('slider/{id}', 'App\Http\Controllers\SliderController@destroy')->name('slider.destroy');
     Route::resource('tag', 'App\Http\Controllers\TagController');
+    
+    //Attach / Detach Tags to Property
+    Route::get('/property/{property_id}/tag/{tag_id}/attach', 'App\Http\Controllers\PropertyTagController@attachTag');
+    Route::get('/property/{property_id}/tag/{tag_id}/detach', 'App\Http\Controllers\PropertyTagController@detachTag');
 
 Auth::routes();
 
