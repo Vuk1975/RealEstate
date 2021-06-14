@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use App\Models\Property;
 use App\Models\Category;
 use App\Models\Subcategory;
@@ -52,7 +53,7 @@ class PropertyController extends Controller
             'water_outlets'=>'required|numeric',
             'bathrooms'=>'required|numeric',
             'badrooms'=>'required|numeric',
-            'rooms'=>'required|numeric',            
+            'rooms'=>'required',            
             'flors'=>'required|numeric',
             'at_flor'=>'required|numeric',
             'year'=>'required|numeric',
@@ -81,6 +82,7 @@ class PropertyController extends Controller
             'bathrooms'=>$request->bathrooms,
             'badrooms'=>$request->badrooms,
             'rooms'=>$request->rooms,
+            'slug'=>Str::slug($request->rooms),
             'flors'=>$request->flors,
             'at_flor'=>$request->at_flor,
             'year'=>$request->year,

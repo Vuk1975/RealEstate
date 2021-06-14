@@ -155,15 +155,16 @@
                             <div class="form-group"> 
                                 <label for="rooms">Structure</label></br>
                                     <select class="form-select" name="rooms" id="">
-                                        <option value="0.5">0.5 room</option>
-                                        <option value="1.0">1.0-room</option>
-                                        <option value="1.5">1.5-rooms</option>
-                                        <option value="2.0">2.0-rooms</option>
-                                        <option value="2.5">2.5-rooms</option>
-                                        <option value="3.0">3.0-rooms</option>
-                                        <option value="3.5">3.5-rooms</option>
-                                        <option value="4.5">4.5-rooms</option>
-                                        <option value="5.0">5.0-rooms</option>
+                                        <option value="studio">0.5 room</option>
+                                        <option value="one room">1.0-room</option>
+                                        <option value="two and a half rooms">1.5-rooms</option>
+                                        <option value="two bedrooms">2.0-rooms</option>
+                                        <option value="two and a half rooms">2.5-rooms</option>
+                                        <option value="three rooms">3.0-rooms</option>
+                                        <option value="three and a half rooms">3.5-rooms</option>
+                                        <option value="four rooms">3.5-rooms</option>
+                                        <option value="four and a half rooms">4.5-rooms</option>
+                                        <option value="five rooms">5.0-rooms</option>
                                     </select>
                     
                             </div>

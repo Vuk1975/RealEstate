@@ -24,7 +24,8 @@ class CreatePropertiesTable extends Migration
             $table->integer('water_outlets');
             $table->integer('bathrooms');
             $table->integer('badrooms');
-            $table->decimal('rooms', 2, 1);
+            $table->string('rooms');
+            $table->string('slug');
             $table->integer('flors');
             $table->integer('at_flor');
             $table->integer('year');

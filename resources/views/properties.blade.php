@@ -57,7 +57,7 @@
                 <div class="card-overlay-a-content">
                   <div class="card-header-a">
                     <h2 class="card-title-a">
-                      <a href="{{route('property.view', [$property->id])}}">{{$property->street}}
+                      <a href="{{route('property.view', [$property->slug, $property->id])}}">{{$property->street}}
                         <br /> {{$property->quart}}</a>
                     </h2>
                   </div>
@@ -65,7 +65,7 @@
                     <div class="price-box d-flex">
                       <span class="price-a">{{$property->category->name}} | $ {{$property->price}}</span>
                     </div>
-                    <a href="{{route('property.view', [$property->id])}}" class="link-a">Click here to view
+                    <a href="{{route('property.view', [$property->slug, $property->id])}}" class="link-a">Click here to view
                       <span class="ion-ios-arrow-forward"></span>
                     </a>
                   </div>

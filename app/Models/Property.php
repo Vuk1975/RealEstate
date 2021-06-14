@@ -15,7 +15,7 @@ class Property extends Model
     use HasFactory;
     
     protected $fillable = ['street', 'quart', 'img', 'area','registered_area', 'window_type', 'water_outlets', 
-                            'bathrooms', 'badrooms','rooms', 'flors', 'at_flor', 'year', 'description', 
+                            'bathrooms', 'badrooms','rooms','slug', 'flors', 'at_flor', 'year', 'description', 
                             'additional_info', 'price', 'category_id','subcategory_id'];
 
     

@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Property;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
 class PropertyFactory extends Factory
 {
@@ -21,18 +22,21 @@ class PropertyFactory extends Factory
      */
     public function definition()
     {
+        $rooms = $this->faker->randomElement($array = array ('one room','two bedrooms','three rooms'));
+       
         return [
             'user_id' => $this->faker->numberBetween($min = 1, $max = 50),
             'street' => $this->faker->streetName,
             'img' => $this->faker->randomElement(['1622401783_post-7.jpg', '1622402278post-2.jpg', '1622579558post-6.jpg', '1622373997_slide-3.jpg']),
-            'quart' => $this->faker->phoneNumber,
+            'quart' => $this->faker->secondaryAddress,
             'area' => $this->faker->numberBetween($min = 50, $max = 150),
             'registered_area' => $this->faker->numberBetween($min = 50, $max = 150),
             'window_type' => $this->faker->word,
             'water_outlets' => $this->faker->numberBetween($min = 1, $max = 3),
             'bathrooms' => $this->faker->numberBetween($min = 1, $max = 3),
             'badrooms' => $this->faker->numberBetween($min = 1, $max = 3),
-            'rooms' => $this->faker->numberBetween($min = 1, $max = 3),
+            'rooms' => $rooms,
+            'slug' => Str::slug($rooms),
             'flors' => $this->faker->numberBetween($min = 5, $max = 10),
             'at_flor' => $this->faker->numberBetween($min = 1, $max = 5),
             'year' => $this->faker->numberBetween($min = 1980, $max = 2020),

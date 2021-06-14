@@ -20,7 +20,7 @@ class FrontPropertiesListController extends Controller
         return view('properties',compact('properties'));
     }
 
-    public function show($id){
+    public function show($slug, $id){
         $property = Property::find($id);
         $photos = json_decode($property->image->pathName, true);
         $productFromSameCategories = Property::inRandomOrder()->
