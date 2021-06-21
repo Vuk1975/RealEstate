@@ -20,9 +20,14 @@ Route::get('/', function () {
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/', 'App\Http\Controllers\FrontPropertiesListController@index');
+Route::get('/index', 'App\Http\Controllers\FrontPropertiesListController@index');
 Route::get('/properties', 'App\Http\Controllers\FrontPropertiesListController@properties')->name('properties');
 Route::get('/properties/{slug}/{id}', 'App\Http\Controllers\FrontPropertiesListController@show')->name('property.view');
+Route::get('/about', function () {
+    return view('about');
+});
+
+
 
 Route::get('/dashboard', function () {
     return view('admin.dashboard');

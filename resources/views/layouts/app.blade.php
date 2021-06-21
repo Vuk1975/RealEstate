@@ -61,10 +61,10 @@
       <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active" href="index.html">Home</a>
+            <a class="nav-link {{ Request::is('index') ? ' active' : '' }}" href="{{asset('/index')}}">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="about.html">About</a>
+            <a class="nav-link {{ Request::is('about') ? ' active' : '' }}" href="{{asset('/about')}}">About</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="property-grid.html">Property</a>
