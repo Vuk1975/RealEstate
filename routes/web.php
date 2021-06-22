@@ -27,11 +27,17 @@ Route::get('/about', function () {
     return view('about');
 });
 
+Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
+
+Auth::routes();
 
 
-Route::get('/dashboard', function () {
-    return view('admin.dashboard');
-});
+Route::group    (['prefix'=>'auth','middleware'=>['auth']],function(){
+	Route::get('/dashboard', function () {
+        return view('admin.dashboard');
+    });
+
+
 	Route::resource('category','App\Http\Controllers\CategoryController');
     Route::resource('subcategory','App\Http\Controllers\SubcategoryController');
     Route::resource('property','App\Http\Controllers\PropertyController');
@@ -55,6 +61,5 @@ Route::get('/dashboard', function () {
     Route::get('/property/{property_id}/tag/{tag_id}/attach', 'App\Http\Controllers\PropertyTagController@attachTag');
     Route::get('/property/{property_id}/tag/{tag_id}/detach', 'App\Http\Controllers\PropertyTagController@detachTag');
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    }
+);

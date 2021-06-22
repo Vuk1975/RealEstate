@@ -95,7 +95,7 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-uppercase mb-1"></div>
-                      <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><a class="sidebar-brand d-flex align-items-center justify-content-center" target="_blank" href="/">Frontend</a></div>
+                      <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><a class="sidebar-brand d-flex align-items-center justify-content-center" target="_blank" href="{{url('index')}}">Frontend</a></div>
                       <div class="mt-2 mb-0 text-muted text-xs">
                         <!--<span class="text-success mr-2"><i class="fas fa-arrow-up"></i> 20.4%</span>
                         <span>Since last month</span>-->
@@ -334,7 +334,7 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Cancel</button>
-                  <a href="login.html" class="btn btn-primary">Logout</a>
+                  <a href="{{url('index')}}" class="btn btn-primary">Logout</a>
                 </div>
               </div>
             </div>
