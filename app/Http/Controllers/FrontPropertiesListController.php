@@ -16,7 +16,7 @@ class FrontPropertiesListController extends Controller
     }
     
     public function properties() {
-        $properties = Property::latest()->get();
+        $properties = Property::with('category')->paginate(12);
         return view('properties',compact('properties'));
     }
 
