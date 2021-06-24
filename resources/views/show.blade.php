@@ -14,13 +14,13 @@
             <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
               <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                  <a href="index.html">Home</a>
+                  <a href="/">Home</a>
                 </li>
                 <li class="breadcrumb-item">
-                  <a href="property-grid.html">Properties</a>
+                  <a href="{{route('properties')}}">Properties</a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">
-                  304 Blaster Up
+                {{$property->quart}}
                 </li>
               </ol>
             </nav>
@@ -125,29 +125,17 @@
                   <ul class="list-a no-margin col-md-12">
                         @foreach($property->tags as $tag)
                           <li>{{ $tag->name }}</li>
-                        @endforeach
-                  
-                   
-               
-                   
-                    
+                        @endforeach           
                   </ul>
                 </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-12">
-            <div class="row section-t3">
-              <div class="col-sm-12">
-                <div class="title-box-d">
-                  <h3 class="title-d">Contact Agent</h3>
+                <div class="row section-t3">
+                  <div class="col-sm-12">
+                    <div class="title-box-d">
+                      <h3 class="title-d">Contact Agent</h3>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-            <div class="row">
-             
-              <div class="col-md-6 col-lg-6">
+                <div class="amenities-list color-text-a">
                 <div class="property-agent">
                   <h4 class="title-agent">{{$property->user->name}}</h4>
                   
@@ -164,31 +152,6 @@
                   </ul>
                   
                 </div>
-              </div>
-              <div class="col-md-12 col-lg-6">
-                <div class="property-contact">
-                  <form class="form-a">
-                    <div class="row">
-                      <div class="col-md-12 mb-1">
-                        <div class="form-group">
-                          <input type="text" class="form-control form-control-lg form-control-a" id="inputName" placeholder="Name *" required>
-                        </div>
-                      </div>
-                      <div class="col-md-12 mb-1">
-                        <div class="form-group">
-                          <input type="email" class="form-control form-control-lg form-control-a" id="inputEmail1" placeholder="Email *" required>
-                        </div>
-                      </div>
-                      <div class="col-md-12 mb-1">
-                        <div class="form-group">
-                          <textarea id="textMessage" class="form-control" placeholder="Comment *" name="message" cols="45" rows="8" required></textarea>
-                        </div>
-                      </div>
-                      <div class="col-md-12">
-                        <button type="submit" class="btn btn-a">Send Message</button>
-                      </div>
-                    </div>
-                  </form>
                 </div>
               </div>
             </div>

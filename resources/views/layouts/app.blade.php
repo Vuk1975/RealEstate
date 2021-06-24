@@ -45,6 +45,7 @@
     <link href="{{url('assets/css/style.css') }}" rel="stylesheet">
 </head>
 <body>
+  
     
           <!-- ======= Header/Navbar ======= -->
   <nav class="navbar navbar-default navbar-trans navbar-expand-lg fixed-top">
@@ -54,15 +55,20 @@
         <span></span>
         <span></span>
       </button>
-      <a class="navbar-brand text-brand" href="index.html">Estate<span class="color-b">Agency</span></a>
+      <a class="navbar-brand text-brand" href="{{asset('/')}}">Estate<span class="color-b">Agency</span></a>
       <button type="button" class="btn btn-link nav-search navbar-toggle-box-collapse d-md-none" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-expanded="false">
         <span class="fa fa-search" aria-hidden="true"></span>
       </button>
       <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link {{ Request::is('index') ? ' active' : '' }}" href="{{asset('/index')}}">Home</a>
+            <a class="nav-link {{ Request::is('index') ? ' active' : '' }}" href="{{asset('/')}}">Home</a>
           </li>
+          @foreach($categories as $category)
+            <li class="nav-item">
+            <a class="nav-link {{ Request::is('about') ? ' active' : '' }}" href="{{route('category.view', [$category->slug, $category->id])}}">{{$category->name}}</a>
+            </li>
+          @endforeach
           <li class="nav-item">
             <a class="nav-link {{ Request::is('about') ? ' active' : '' }}" href="{{asset('/about')}}">About</a>
           </li>

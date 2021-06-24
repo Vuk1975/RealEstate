@@ -54,9 +54,9 @@
                     </div>
                     <div class="form-group">
                       <div class="custom-file">
-                            <input type="file" name="img" style="min-width: 100%!important;" >
-                        
-                            @error('image')
+                        <input type="file" class="custom-file-input @error('img') is-invalid @enderror  " id="customFile" name="img">
+                        <label class="custom-file-label  " for="customFile">Choose file</label>
+                            @error('img')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                           </span>

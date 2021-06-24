@@ -46,7 +46,7 @@ class PropertyController extends Controller
         $this->validate($request,[
             'street'=>'required',
             'quart'=>'required',
-            'img.*' => 'mimes:jpeg,jpg,png,gif',
+            'img' => 'required|mimes:jpeg,jpg,png,gif',
             'area'=>'required',
             'registered_area'=>'required',
             'window_type'=>'required',
@@ -72,6 +72,7 @@ class PropertyController extends Controller
 
         $property = Property::create([
   
+            'user_id' => auth()->id(),
             'street'=>$request->street,
             'quart'=>$request->quart,
             'img'=>$name,

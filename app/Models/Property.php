@@ -14,7 +14,7 @@ class Property extends Model
 {
     use HasFactory;
     
-    protected $fillable = ['street', 'quart', 'img', 'area','registered_area', 'window_type', 'water_outlets', 
+    protected $fillable = ['user_id','street', 'quart', 'img', 'area','registered_area', 'window_type', 'water_outlets', 
                             'bathrooms', 'badrooms','rooms','slug', 'flors', 'at_flor', 'year', 'description', 
                             'additional_info', 'price', 'category_id','subcategory_id'];
 

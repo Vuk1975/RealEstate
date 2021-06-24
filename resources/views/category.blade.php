@@ -47,7 +47,7 @@
             </div>
           </div>
           
-          @foreach($properties as $property)
+          @foreach($productFromSameCategories as $property)
           <div class="col-md-4">
             <div class="card-box-a card-shadow">
               <div class="img-box-a">

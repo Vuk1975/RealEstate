@@ -53,7 +53,7 @@
       $(document).ready(function(){
         $('.btn-success').click(function(e){
           e.preventDefault();
-          $(this).before("<div class='row'><input type='file' name='pathName[]'  style='min-width: 100%!important;' class='form-control'></div>");
+          $(this).before("<input type='file' name='pathName[]'  style='min-width: 100%!important;' class='form-control row'>");
         });
       });
     </script>
