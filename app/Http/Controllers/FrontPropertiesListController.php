@@ -21,7 +21,7 @@ class FrontPropertiesListController extends Controller
     
     
     public function properties() {
-        $properties = Property::with('category')->paginate(12);
+        $properties = Property::with('category')->simplePaginate(12);
         return view('properties',compact('properties'));
     }
 
@@ -44,7 +44,7 @@ class FrontPropertiesListController extends Controller
         $productFromSameCategories = Property::with('category')
         ->inRandomOrder()
         ->where('category_id', $category->id)
-        ->paginate(12);
+        ->simplePaginate(12);
 
         return view('category', compact('category', 'productFromSameCategories'));
     }
