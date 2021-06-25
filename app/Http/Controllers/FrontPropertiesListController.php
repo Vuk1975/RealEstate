@@ -7,14 +7,16 @@ use App\Models\Category;
 use App\Models\Subcategory;
 use App\Models\Property;
 use App\Models\Slider;
+use App\Models\Service;
 
 class FrontPropertiesListController extends Controller
 {
     public function index() {
-        $categories = Category::get();
+        //$categories = Category::get();
         $properties = Property::latest()->limit(6)->get();
         $sliders = Slider::get();
-        return view('index', compact('properties', 'sliders'));
+        $services = Service::latest()->limit(3)->get();
+        return view('index', compact('properties', 'sliders', 'services'));
     }
     
     

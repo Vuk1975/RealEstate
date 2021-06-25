@@ -122,6 +122,5 @@
         </div>
       </div>
     </section><!-- End Property Grid Single-->
-
   </main><!-- End #main -->
 @endsection

@@ -39,7 +39,7 @@ Route::group(['prefix'=>'auth','middleware'=>['auth','isAdmin']],function(){
                 Route::resource('category','App\Http\Controllers\CategoryController');
                 Route::resource('subcategory','App\Http\Controllers\SubcategoryController');
                 Route::resource('property','App\Http\Controllers\PropertyController');
-                
+                Route::resource('service','App\Http\Controllers\ServiceController');
             
                 Route::get('/image/create/{id}', [App\Http\Controllers\ImageController::class,'create'])->name('image.create');
                 Route::post('image/store/{id}', [App\Http\Controllers\ImageController::class,'store'])->name('image.store');

@@ -86,6 +86,20 @@
           </div>
         </div>
       </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseService" aria-expanded="true"
+          aria-controls="collapseService">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Service</span>
+        </a>
+        <div id="collapseService" class="collapse" aria-labelledby="headingTag" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Service</h6>
+            <a class="collapse-item" href="{{route('service.index')}}">View</a>
+            <a class="collapse-item" href="{{route('service.create')}}">Create</a>
+          </div>
+        </div>
+      </li>
       
       
      
