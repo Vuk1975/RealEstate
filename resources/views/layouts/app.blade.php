@@ -62,21 +62,21 @@
       <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link {{ Request::is('index') ? ' active' : '' }}" href="{{asset('/')}}">Home</a>
+            <a class="nav-link {{ Request::is('') ? ' active' : '' }}" href="{{asset('/')}}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {{ Request::is('properties') ? ' active' : '' }}" href="{{asset('/properties')}}">All Properties</a>
           </li>
           @foreach($categories as $category)
             <li class="nav-item">
-            <a class="nav-link {{ Request::is('about') ? ' active' : '' }}" href="{{route('category.view', [$category->slug, $category->id])}}">{{$category->name}}</a>
+            <a class="nav-link {{ Request::is('category') ? ' active' : '' }}" href="{{route('category.view', [$category->slug, $category->id])}}">{{$category->name}}</a>
             </li>
           @endforeach
           <li class="nav-item">
             <a class="nav-link {{ Request::is('services') ? ' active' : '' }}" href="{{asset('/services')}}">Services</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{asset('/properties')}}">Property</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link {{ Request::is('services') ? ' active' : '' }}" href="{{asset('/blogposts')}}">Blog</a>
+            <a class="nav-link {{ Request::is('blogposts') ? ' active' : '' }}" href="{{asset('/blogposts')}}">Blog</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -141,23 +141,13 @@
             <div class="w-body-a">
               <div class="w-body-a">
                 <ul class="list-unstyled">
-                  <li class="item-list-a">
-                    <i class="fa fa-angle-right"></i> <a href="#">Site Map</a>
-                  </li>
-                  <li class="item-list-a">
-                    <i class="fa fa-angle-right"></i> <a href="#">Legal</a>
-                  </li>
-                  <li class="item-list-a">
-                    <i class="fa fa-angle-right"></i> <a href="#">Agent Admin</a>
-                  </li>
-                  <li class="item-list-a">
-                    <i class="fa fa-angle-right"></i> <a href="#">Careers</a>
-                  </li>
-                  <li class="item-list-a">
-                    <i class="fa fa-angle-right"></i> <a href="#">Affiliate</a>
-                  </li>
-                  <li class="item-list-a">
-                    <i class="fa fa-angle-right"></i> <a href="#">Privacy Policy</a>
+              
+              @foreach($subcategories as $subcategory)
+              <li class="item-list-a">
+                  <i class="fa fa-angle-right"></i> <a href="#">{{$subcategory->name}} for {{$subcategory->category->name}}</a>
+                </li>
+              @endforeach
+             
                   </li>
                 </ul>
               </div>
