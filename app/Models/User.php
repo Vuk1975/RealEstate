@@ -11,23 +11,14 @@ use App\Models\Property;
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
-
-    public function properties(){
-        return $this->hasMany(Property::class);
-    }
-
-    
+   
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = [
-        'name',
-        'phone',
-        'email',
-        'password',
+    protected $fillable = ['name', 'phone', 'email', 'password',
     ];
 
     /**
@@ -48,4 +39,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function properties(){
+        return $this->hasMany(Property::class);
+    }
+
+    public function blogposts(){
+        return $this->hasMany(Blogpost::class);
+    }
 }

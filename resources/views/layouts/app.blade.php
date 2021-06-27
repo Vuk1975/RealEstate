@@ -70,13 +70,13 @@
             </li>
           @endforeach
           <li class="nav-item">
-            <a class="nav-link {{ Request::is('about') ? ' active' : '' }}" href="{{asset('/about')}}">About</a>
+            <a class="nav-link {{ Request::is('services') ? ' active' : '' }}" href="{{asset('/services')}}">Services</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="property-grid.html">Property</a>
+            <a class="nav-link" href="{{asset('/properties')}}">Property</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="blog-grid.html">Blog</a>
+            <a class="nav-link {{ Request::is('services') ? ' active' : '' }}" href="{{asset('/blogposts')}}">Blog</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
