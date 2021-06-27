@@ -12,6 +12,26 @@
             <div class="col-xl-3 col-md-6 mb-4">
               <div class="card h-100">
                 <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-uppercase mb-1">Users</div>
+                      <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{App\Models\User::get()->count()}}</div>
+                      <div class="mt-2 mb-0 text-muted text-xs">
+                        <!--<span class="text-success mr-2"><i class="fas fa-arrow-up"></i> 20.4%</span>
+                        <span>Since last month</span>-->
+                      </div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-users fa-2x text-info"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card h-100">
+                <div class="card-body">
                   <div class="row align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-uppercase mb-1">Categories</div>
@@ -71,22 +91,62 @@
             <div class="col-xl-3 col-md-6 mb-4">
               <div class="card h-100">
                 <div class="card-body">
-                  <div class="row no-gutters align-items-center">
+                  <div class="row align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-uppercase mb-1">Users</div>
-                      <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{App\Models\User::get()->count()}}</div>
+                      <div class="text-xs font-weight-bold text-uppercase mb-1">Blogs</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">{{App\Models\Blogpost::get()->count()}}</div>
                       <div class="mt-2 mb-0 text-muted text-xs">
-                        <!--<span class="text-success mr-2"><i class="fas fa-arrow-up"></i> 20.4%</span>
-                        <span>Since last month</span>-->
+                        <span class="text-success mr-2"></span>
+                        <span></span>
                       </div>
                     </div>
                     <div class="col-auto">
-                      <i class="fas fa-users fa-2x text-info"></i>
+                      <i class="fas fa-calendar fa-2x text-primary"></i>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card h-100">
+                <div class="card-body">
+                  <div class="row align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-uppercase mb-1">Services</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">{{App\Models\Service::get()->count()}}</div>
+                      <div class="mt-2 mb-0 text-muted text-xs">
+                        <span class="text-success mr-2"></span>
+                        <span></span>
+                      </div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-calendar fa-2x text-primary"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card h-100">
+                <div class="card-body">
+                  <div class="row align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-uppercase mb-1">Tags</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">{{App\Models\Tag::get()->count()}}</div>
+                      <div class="mt-2 mb-0 text-muted text-xs">
+                        <span class="text-success mr-2"></span>
+                        <span></span>
+                      </div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-calendar fa-2x text-primary"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             
             <!-- Pending Requests Card Example class-->
             <div class="col-xl-3 col-md-6 mb-4">
@@ -95,7 +155,7 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-uppercase mb-1"></div>
-                      <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><a class="sidebar-brand d-flex align-items-center justify-content-center" target="_blank" href="{{url('index')}}">Frontend</a></div>
+                      <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><a class="sidebar-brand d-flex align-items-center justify-content-center" target="_blank" href="{{url('/')}}">Frontend</a></div>
                       <div class="mt-2 mb-0 text-muted text-xs">
                         <!--<span class="text-success mr-2"><i class="fas fa-arrow-up"></i> 20.4%</span>
                         <span>Since last month</span>-->

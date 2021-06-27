@@ -100,6 +100,20 @@
           </div>
         </div>
       </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBlog" aria-expanded="true"
+          aria-controls="collapseBlog">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Blog</span>
+        </a>
+        <div id="collapseBlog" class="collapse" aria-labelledby="headingTag" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Blog</h6>
+            <a class="collapse-item" href="{{route('blogpost.index')}}">View</a>
+            <a class="collapse-item" href="{{route('blogpost.create')}}">Create</a>
+          </div>
+        </div>
+      </li>
       
       
      
