@@ -44,7 +44,7 @@ class PropertyFactory extends Factory
             'additional_info' => $this->faker->text($maxNbChars = 200),
             'price' => $this->faker->numberBetween($min = 50000, $max = 100000),
             'category_id' => $this->faker->numberBetween($min = 1, $max = 2),
-            'subcategory_id' => $this->faker->numberBetween($min = 1, $max = 2),
+            'subcategory_id' => $this->faker->numberBetween($min = 1, $max = 4),
         ];
     }
 }

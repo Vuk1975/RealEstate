@@ -144,8 +144,11 @@
               
               @foreach($subcategories as $subcategory)
               <li class="item-list-a">
-                  <i class="fa fa-angle-right"></i> <a href="#">{{$subcategory->name}} for {{$subcategory->category->name}}</a>
-                </li>
+                    <i class="fa fa-angle-right"></i> 
+                    <a href="{{route('subcategory.view', [$subcategory->id])}}">
+                    {{$subcategory->category->name}} - {{$subcategory->name}}
+                    </a>
+              </li>
               @endforeach
              
                   </li>

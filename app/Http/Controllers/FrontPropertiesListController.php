@@ -34,7 +34,7 @@ class FrontPropertiesListController extends Controller
         return view('show', compact('property', 'photos'));
     }
     //Properties from same category
-    public function showCaterory($slug, $id){
+    public function showCategory($slug, $id){
         $category = Category::with('property')->find($id);
         $productFromSameCategories = Property::with('category')
         ->inRandomOrder()
@@ -42,6 +42,17 @@ class FrontPropertiesListController extends Controller
         ->simplePaginate(12);
         return view('category', compact('category', 'productFromSameCategories'));
     }
+
+    public function showSubcategory($id){
+        
+        $subcategory = Subcategory::with('property')->find($id);
+        $properties = Property::with('subcategory')->where('subcategory_id', $subcategory->id)
+        ->where('category_id', $subcategory->category_id)
+        ->inRandomOrder()
+        ->simplePaginate(12);
+        return view('subcategory', compact('subcategory', 'properties'));
+    }
+
     //Services page
     public function services(){
         $services = Service::latest()->get();

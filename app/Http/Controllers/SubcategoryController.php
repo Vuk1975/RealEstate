@@ -44,6 +44,7 @@ class SubcategoryController extends Controller
        Subcategory::create([
 
             'name'=>$request->name,
+            'slug'=>Str::slug($request->name),
             'category_id'=>$request->category
 
        ]);

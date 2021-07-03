@@ -22,10 +22,10 @@ class DatabaseSeeder extends Seeder
         Category::create(['name'=>'Sale','slug'=>'sale','description'=>'Sale']);
         
 
-        Subcategory::create(['name'=>'House','category_id'=>1]);
-        Subcategory::create(['name'=>'Flat','category_id'=>1]);
-        Subcategory::create(['name'=>'House','category_id'=>2]);
-        Subcategory::create(['name'=>'Flat','category_id'=>2]);
+        Subcategory::create(['name'=>'House', 'slug'=>'house', 'category_id'=>1]);
+        Subcategory::create(['name'=>'Flat', 'slug'=>'flat','category_id'=>1]);
+        Subcategory::create(['name'=>'House', 'slug'=>'house','category_id'=>1]);
+        Subcategory::create(['name'=>'Flat', 'slug'=>'flat','category_id'=>2]);
 
         Tag::create(['name'=>'Balcony', 'created_at' => Now(), 'updated_at' => Now()]);
         Tag::create(['name'=>'Parking', 'created_at' => Now(), 'updated_at' => Now()]);

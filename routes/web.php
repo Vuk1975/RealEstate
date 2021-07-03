@@ -23,7 +23,8 @@ Route::get('/', function () {
 Route::get('/', 'App\Http\Controllers\FrontPropertiesListController@index');
 Route::get('/properties', 'App\Http\Controllers\FrontPropertiesListController@properties')->name('properties');
 Route::get('/properties/{slug}/{id}', 'App\Http\Controllers\FrontPropertiesListController@show')->name('property.view');
-Route::get('/category/{slug}/{id}', 'App\Http\Controllers\FrontPropertiesListController@showCaterory')->name('category.view');
+Route::get('/category/{slug}/{id}', 'App\Http\Controllers\FrontPropertiesListController@showCategory')->name('category.view');
+Route::get('/subcategory/{slug}', 'App\Http\Controllers\FrontPropertiesListController@showSubcategory')->name('subcategory.view');
 Route::get('/services', 'App\Http\Controllers\FrontPropertiesListController@services')->name('services.view');
 Route::get('/service/{slug}/{id}', 'App\Http\Controllers\FrontPropertiesListController@showService')->name('showService.view');
 Route::get('/blogposts', 'App\Http\Controllers\FrontPropertiesListController@blogposts')->name('blogposts.view');
